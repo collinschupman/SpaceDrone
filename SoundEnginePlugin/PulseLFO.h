@@ -1,8 +1,9 @@
 #include <cmath>
 
-class TriangleLFO {
+class PulseLFO {
 public:
-    TriangleLFO(float frequency, float amplitude);
+    PulseLFO();
+    PulseLFO(float frequency, float amplitude, float dutyCycle);
 
     void setFrequency(float frequency);
 
@@ -10,10 +11,13 @@ public:
 
     float getNextSample();
 
+    void setDutyCycle(float dutyCycle);
+
 private:
     float mFrequency;  
     float mAmplitude;   
     float mPhase;      
+    float mDutyCycle;
     int mDirection;     
-    static constexpr float mSampleRate = 44100.0f; 
+    float mSampleRate = 44100.0f; 
 };

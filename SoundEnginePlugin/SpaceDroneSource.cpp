@@ -94,6 +94,8 @@ void SpaceDroneSource::Execute(AkAudioBuffer* out_pBuffer)
     AKPLATFORM::OutputDebugMsg(std::to_string(m_pParams->RTPC.fDynamic).c_str());
     AKPLATFORM::OutputDebugMsg("\n");
 
+    mGeiger.process(m_pParams->RTPC.fDensity, m_pParams->RTPC.fRnd, m_pParams->RTPC.fDynamic);
+
     m_durationHandler.SetDuration(m_pParams->RTPC.fDuration);
     m_durationHandler.ProduceBuffer(out_pBuffer);
 
@@ -118,3 +120,4 @@ AkReal32 SpaceDroneSource::GetDuration() const
 {
     return m_durationHandler.GetDuration() * 1000.0f;
 }
+

@@ -28,6 +28,7 @@ the specific language governing permissions and limitations under the License.
 #define SpaceDroneSource_H
 
 #include "SpaceDroneSourceParams.h"
+#include "Geiger.h"
 
 #include <AK/Plugin/PluginServices/AkFXDurationHandler.h>
 
@@ -66,6 +67,7 @@ private:
     AK::IAkPluginMemAlloc* m_pAllocator;
     AK::IAkSourcePluginContext* m_pContext;
     AkFXDurationHandler m_durationHandler;
+    Geiger mGeiger;
 };
 
 #endif // SpaceDroneSource_H
